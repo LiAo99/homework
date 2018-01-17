@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+			}
+			
+			#box1 {
+				background: pink;
+				left: 0;
+			}
+			
+			#box2 {
+				background: red;
+				left: 200px;
+			}
+			
+			#box3 {
+				background: blue;
+				left: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/box1.js"></script>
+<script type="text/javascript" src="js/box2.js"></script>
+<script type="text/javascript" src="js/box3.js"></script>
+<script type="text/javascript">
+	new Box1("#box1").start();
+	new Box2("#box2").start();
+	new Box3("#box3").start();
+</script>
+	
+
+	
