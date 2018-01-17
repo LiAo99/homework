@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				height: 100vh;
+				background: url(imgs/bg.jpg) no-repeat;
+				background-size: 100% 100%;
+			}
+		
+			.fireworm {
+				width: 45px;
+				height: 40px;
+				background: url(imgs/snow.gif);
+				background-size: 100% 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.star{
+				width: 45px;
+				height: 40px;
+				background: url(imgs/1.jpg);
+				background-size: 100% 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	<body>
+		
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	function FireWorm(cls) {
+	
+	this.ele = $("<div></div>")	
+	this.ele.addClass(cls) 
+	
+	this.ele.appendTo("body")     
+	}
+	
+	FireWorm.prototype.move=function(){
+		var x = Math.random() * ($("body").width() - 100)
+		var y = Math.random() * ($("body").height() - 100)
+		
+		
+		var self = this
+		
+		
+		this.ele.animate({left: x,top: y}, 1000, function() {
+			self.move()
+		})
+	}
+	
+	function Star(cls){
+		FireWorm.call(this,cls)
+	}
+	Star.prototype=new FireWorm();
+setInterval(function(){
+	var obj = new FireWorm("fireworm");
+	obj.move();
+},1000)
+
+setInterval(function(){
+	new Star("star").move();
+},1000)
+</script>
+	
